@@ -1,6 +1,6 @@
 # Topología 2 (Oficina Central)
 
-![topo2](images\topo2.PNG)
+![topo2](./images/topo2.PNG)
 
 ### Configuración de enlaces troncales para ESW2, ESW3, ESW4 y ESW5
 
@@ -8,7 +8,7 @@ como primer paso se configura la redundancia en los switch de capa 3 para que la
 
 ### ESW4 (Switch Server) 
 
-###  ![esw4](images\esw4.PNG)
+###  ![esw4](./images/esw4.PNG)
 
 #### Configuración de VTP
 
@@ -138,7 +138,7 @@ show etherchannel summary
 
 ### ESW2 (Cliente)
 
-### ![esw2](images/esw2.png)
+### ![esw2](./images/esw2.png)
 
 
 
@@ -232,7 +232,7 @@ show etherchannel summary
 
 ### ESW5 (Cliente) 
 
-### ![esw2](images/esw5.png)
+### ![esw2](./images/esw5.png)
 
 -- CONFIGURACION DE PORTCHANNEL (AGRUPAR TODAS LAS INTERFACES PARA REDUNDANCIA)
 
@@ -308,7 +308,7 @@ show etherchannel summary
 
 ### ESW3 (Cliente)
 
-### ![esw3](images/esw3.png)
+### ![esw3](./images/esw3.png)
 
 
 
@@ -408,7 +408,7 @@ show etherchannel summary
 
 ### R2 (Router de topologia)
 
-###  ![R2](images/r2.png)
+###  ![R2](./images/r2.png)
 
 Se crean vlans y se establece el modo trunk a traves de Dot1Q
 
