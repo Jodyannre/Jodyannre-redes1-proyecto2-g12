@@ -472,4 +472,104 @@ encapsulation dot1Q 40
 
 #ip address 192.168.43.190 255.255.255.192
 
+## Distribución Topologia 2
+| Deprtamento  | Distribución        | Cantidad |
+|--------------|---------------------|----------|
+| RRHH         | Gerente             | 1        |
+|              | Reclutadores        | 15       |
+|              | Analistas           | 5        |
+|              | **Total**           | **21**   |
+| Contabilidad | Gerente             | 1        |
+|              | Asistente de Conta. | 5        |
+|              | Contador General    | 1        |
+|              | Auditor             | 1        |
+|              | **Total**           | **8**       |
+| Ventas       | Operadores de Ventas  | 76       |
+|              | Encargados de Cuentas | 4        |
+|              | Manager               | 12       |
+|              | Gerente               | 1        |
+|              | **Total**             | **93**       |
+|              | **Crecimiento Prev**  | **≈ 123**    |
+| Informática | Programadores           | 15       |
+|             | Gestor de Proyectos     | 5        |
+|             | Admin de Base de Datos  | 1        |
+|             | Analista de Infrastruc. | 3        |
+|             | Tester                  | 6        |
+|             | Gerente                 | 1        |
+|             | **Total**               | **31**      |
+|             | **Crecimiento Prev**    | **≈ 37**     |
+
 ### Configuracion de VPC'S
+
+```bash
+#Ventas
+ip 192.168.43.1/24 192.168.84.126
+ip 192.168.43.2/24 192.168.84.126 
+#Informatica
+ip 192.168.43.129/24 192.168.84.190
+ip 192.168.43.130/24 192.168.84.190
+#RRHH
+ip 192.168.43.193/24 192.168.84.222
+#Contabilidad
+ip 192.168.43.225/24 192.168.84.238 
+```
+
+### Configuracion de router topo 2 - sub interfaces
+
+```bash
+#sub-interfaces
+conf t
+int f1/0
+no shut
+int f1/0.10
+int f1/0.20
+int f1/0.30
+int f1/0.40
+
+#chequear que existan las sub-interfaces
+do sh run
+
+exit
+
+int f1/0.10
+encapsulation dot1Q 10 
+ip address 192.168.43.222 255.255.255.224
+
+int f1/0.20
+encapsulation dot1Q 20
+ip address 192.168.43.238 255.255.255.240
+
+int f1/0.30
+encapsulation dot1Q 30
+ip address 192.168.43.126 255.255.255.128
+
+int f1/0.40
+encapsulation dot1Q 40
+ip address 192.168.43.190 255.255.255.192
+
+```
+### Configuracion de router con topo 1
+```bash
+#conexion a topologia 1
+conf t
+interface FastEthernet2/0
+ip address 10.12.0.18 255.255.255.252
+duplex auto
+speed auto
+no shut
+exit
+interface FastEthernet3/0
+ip address 10.12.0.10 255.255.255.252
+duplex auto
+speed auto
+no shut
+end
+```
+### Configuracion de router rip
+```bash
+conf t
+#router rip
+version 2
+network 10.0.0.0
+network 192.168.43.0
+```
