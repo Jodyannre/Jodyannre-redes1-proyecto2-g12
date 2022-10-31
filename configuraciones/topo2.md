@@ -138,7 +138,7 @@ show etherchannel summary
 
 ### ESW2 (Cliente)
 
-### ![esw2](./images/esw2.png)
+### ![esw2](./images/esw2.PNG)
 
 
 
@@ -232,7 +232,7 @@ show etherchannel summary
 
 ### ESW5 (Cliente) 
 
-### ![esw2](./images/esw5.png)
+### ![esw2](./images/esw5.PNG)
 
 -- CONFIGURACION DE PORTCHANNEL (AGRUPAR TODAS LAS INTERFACES PARA REDUNDANCIA)
 
@@ -308,7 +308,7 @@ show etherchannel summary
 
 ### ESW3 (Cliente)
 
-### ![esw3](./images/esw3.png)
+### ![esw3](./images/esw3.PNG)
 
 
 
@@ -408,7 +408,7 @@ show etherchannel summary
 
 ### R2 (Router de topologia)
 
-###  ![R2](./images/r2.png)
+###  ![R2](./images/r2.PNG)
 
 Se crean vlans y se establece el modo trunk a traves de Dot1Q
 
