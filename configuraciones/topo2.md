@@ -11,7 +11,7 @@ como primer paso se configura la redundancia en los switch de capa 3 para que la
 ###  ![esw4](./images/esw4.PNG)
 
 #### Configuración de VTP
-```bash
+
 conf ter
 
 vtp domain redes1gp12
@@ -19,10 +19,9 @@ vtp domain redes1gp12
 vtp password redes1gp12
 
 vtp mode server
-```
 
 #### Configuración de PortChannel (Agrupar todas las interfaces para redundancia)
-```bash
+
 conf ter
 
 interface range f1/1 - 2
@@ -136,14 +135,13 @@ show etherchannel summary
 //ver puertos
 
 #show spanning-tree blockedports
-```
 
 ### ESW2 (Cliente)
 
 ### ![esw2](./images/esw2.PNG)
 
 
-```bash
+
 -- CONFIGURACION DE PORTCHANNEL (AGRUPAR TODAS LAS INTERFACES PARA REDUNDANCIA)
 
 #conf ter
@@ -305,9 +303,9 @@ show etherchannel summary
 #vtp status
 
 #show vlan-sw
-```
 
-```bash
+
+
 ### ESW3 (Cliente)
 
 ### ![esw3](./images/esw3.PNG)
@@ -407,12 +405,11 @@ show etherchannel summary
 #vtp status
 
 #show vlan-sw 
-```
 
 ### R2 (Router de topologia)
 
 ###  ![R2](./images/r2.PNG)
-```bash
+
 Se crean vlans y se establece el modo trunk a traves de Dot1Q
 
 #conf ter
@@ -474,7 +471,6 @@ encapsulation dot1Q 40
 #encapsulation dot1Q 40
 
 #ip address 192.168.43.190 255.255.255.192
-```
 
 ## Distribución Topologia 2
 | Deprtamento  | Distribución        | Cantidad |
@@ -503,6 +499,17 @@ encapsulation dot1Q 40
 |             | **Total**               | **31**      |
 |             | **Crecimiento Prev**    | **≈ 37**     |
 
+---
+### Tabla VLSM Topologia 2
+
+|VLAN|SALTO|DIRECCIÓN DE RED|MÁSCARA|PRIMERA ASIGNABLE|ULTIMA ASIGNABLE|BROADCAST|HOSTS|HOSTS TOTALES|
+| :- | :- | :- | :- | :- | :- | :- | :- | :- |
+|30|128|192.168.43.0/25|255.255.255.128|192.168.43.1|192.168.43.126|192.168.43.127|123|126|
+|40|64|192.168.43.128/26|255.255.255.192|192.168.43.129|192.168.43.190|192.168.43.191|37|62|
+|10|32|192.168.43.192/27|255.255.255.224|192.168.43.193|192.168.43.222|192.168.43.223|21|30|
+|20|14|192.168.43.224/28|255.255.255.240|192.168.43.225|192.168.43.238|192.168.43.239|8|14|
+
+---
 ### Configuracion de VPC'S
 
 ```bash
@@ -517,7 +524,7 @@ ip 192.168.43.193/24 192.168.84.222
 #Contabilidad
 ip 192.168.43.225/24 192.168.84.238 
 ```
-
+---
 ### Configuracion de router topo 2 - sub interfaces
 
 ```bash
@@ -550,6 +557,7 @@ ip address 192.168.43.126 255.255.255.128
 int f1/0.40
 encapsulation dot1Q 40
 ip address 192.168.43.190 255.255.255.192
+
 
 ```
 ### Configuracion de router con topo 1
