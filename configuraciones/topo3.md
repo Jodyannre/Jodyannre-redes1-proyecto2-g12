@@ -1,5 +1,7 @@
 # Topologia 3 
 
+![topo3_1](./images/topo3_1.png)
+
 ## Cálculo de subnetting
 
 Subredes
