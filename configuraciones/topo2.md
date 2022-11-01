@@ -5,13 +5,13 @@
 ### Configuración de enlaces troncales para ESW2, ESW3, ESW4 y ESW5
 
 como primer paso se configura la redundancia en los switch de capa 3 para que la comunicación sea efectiva, de todos los switch se establece uno como un switch server en el que se crean las vlans y luego se replican hacia las demás.
-```bash
+
 ### ESW4 (Switch Server) 
 
 ###  ![esw4](./images/esw4.PNG)
 
 #### Configuración de VTP
-
+```bash
 conf ter
 
 vtp domain redes1gp12
@@ -19,9 +19,10 @@ vtp domain redes1gp12
 vtp password redes1gp12
 
 vtp mode server
+```
 
 #### Configuración de PortChannel (Agrupar todas las interfaces para redundancia)
-
+```bash
 conf ter
 
 interface range f1/1 - 2
@@ -136,13 +137,13 @@ show etherchannel summary
 
 #show spanning-tree blockedports
 ```
-```bash
+
 ### ESW2 (Cliente)
 
 ### ![esw2](./images/esw2.PNG)
 
 
-
+```bash
 -- CONFIGURACION DE PORTCHANNEL (AGRUPAR TODAS LAS INTERFACES PARA REDUNDANCIA)
 
 #conf ter
@@ -407,11 +408,11 @@ show etherchannel summary
 
 #show vlan-sw 
 ```
-```bash
+
 ### R2 (Router de topologia)
 
 ###  ![R2](./images/r2.PNG)
-
+```bash
 Se crean vlans y se establece el modo trunk a traves de Dot1Q
 
 #conf ter
