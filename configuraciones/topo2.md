@@ -5,7 +5,7 @@
 ### Configuración de enlaces troncales para ESW2, ESW3, ESW4 y ESW5
 
 como primer paso se configura la redundancia en los switch de capa 3 para que la comunicación sea efectiva, de todos los switch se establece uno como un switch server en el que se crean las vlans y luego se replican hacia las demás.
-
+```bash
 ### ESW4 (Switch Server) 
 
 ###  ![esw4](./images/esw4.PNG)
@@ -135,7 +135,8 @@ show etherchannel summary
 //ver puertos
 
 #show spanning-tree blockedports
-
+```
+```bash
 ### ESW2 (Cliente)
 
 ### ![esw2](./images/esw2.PNG)
@@ -303,9 +304,9 @@ show etherchannel summary
 #vtp status
 
 #show vlan-sw
+```
 
-
-
+```bash
 ### ESW3 (Cliente)
 
 ### ![esw3](./images/esw3.PNG)
@@ -405,7 +406,8 @@ show etherchannel summary
 #vtp status
 
 #show vlan-sw 
-
+```
+```bash
 ### R2 (Router de topologia)
 
 ###  ![R2](./images/r2.PNG)
@@ -471,6 +473,7 @@ encapsulation dot1Q 40
 #encapsulation dot1Q 40
 
 #ip address 192.168.43.190 255.255.255.192
+```
 
 ## Distribución Topologia 2
 | Deprtamento  | Distribución        | Cantidad |
